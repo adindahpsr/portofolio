@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ExternalLink, Github, ChevronDown, ChevronUp } from "lucide-react";
+import { ExternalLink, Github, ChevronDown, ChevronUp, FileText } from "lucide-react";
 import { useScrollReveal } from "@/components/ui/useScrollReveal";
 import { portfolioData } from "@/lib/data";
 
@@ -88,7 +88,7 @@ export default function ProjectsSection() {
                       </span>
                     ))}
                   </div> */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-border">
+                  <div className="flex items-center gap-4 pt-4 border-t border-border flex-wrap">
                     <a href={`/projects/${project.slug}`} className="flex items-center gap-1.5 text-xs text-accent hover:text-ink transition-colors font-medium">
                       Lihat Detail →
                     </a>
@@ -98,6 +98,11 @@ export default function ProjectsSection() {
                     <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-muted hover:text-ink transition-colors">
                       <Github size={13} /> Source Code
                     </a>
+                    {(project as any).publication && (
+                      <a href={(project as any).publication} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-muted hover:text-ink transition-colors">
+                        <FileText size={13} /> Publikasi
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

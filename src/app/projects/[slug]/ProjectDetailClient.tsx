@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowLeft, ExternalLink, Github, CheckCircle2, Image } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, CheckCircle2, ImageIcon } from "lucide-react";
+import NextImage from "next/image";
 import { portfolioData } from "@/lib/data";
 
 type Project = (typeof portfolioData.projects)[0];
@@ -50,28 +51,24 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}>
           <div className="w-full aspect-video rounded-sm overflow-hidden border border-border bg-surface relative group">
-            {/* Ganti src dengan gambar project kamu — taruh di public/projects/nama-project.jpg */}
-            <img
-              src={`/projects/${project.slug}.jpg`}
-              alt={`Screenshot ${project.title}`}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              onError={(e) => {
-                const target = e.currentTarget;
-                target.style.display = "none";
-                const fallback = target.nextElementSibling as HTMLElement;
-                if (fallback) fallback.style.display = "flex";
-              }}
-            />
-            {/* Fallback */}
-            <div className="absolute inset-0 flex-col items-center justify-center bg-surface gap-3" style={{ display: "none" }}>
-              <div className="w-14 h-14 rounded-full bg-border flex items-center justify-center">
-                <Image size={24} className="text-muted" />
+            {(project as any).image ? (
+              <NextImage
+                src={(project as any).image}
+                alt={`Screenshot ${project.title}`}
+                fill
+                sizes="(max-width: 768px) 100vw, 800px"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            ) : (
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-surface gap-3">
+                <div className="w-14 h-14 rounded-full bg-border flex items-center justify-center">
+                  <ImageIcon size={24} className="text-muted" />
+                </div>
+                <p className="font-mono text-xs text-muted text-center">
+                  Belum ada gambar untuk project ini
+                </p>
               </div>
-              <p className="font-mono text-xs text-muted text-center">
-                Tambah screenshot di<br/>
-                <span className="text-accent">public/projects/{project.slug}.jpg</span>
-              </p>
-            </div>
+            )}
           </div>
         </div>
 

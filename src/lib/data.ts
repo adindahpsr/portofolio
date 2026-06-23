@@ -54,9 +54,10 @@ Membandingkan tiga algoritma, SVM dan Complement Naive Bayes (CNB) dengan TF-IDF
  
 Model terbaik (SVM/LinearSVC, threshold optimal -0.330) mencapai F1-Macro 0.2038 dan F1-Micro 0.4100 pada test set; skor F1-Macro yang relatif rendah merefleksikan tingkat label imbalance ekstrem antar 30 subjek serta tumpang tindih terminologi antar subjek. Model terbaik diintegrasikan ke dalam prototipe web real-time menggunakan Streamlit.`,
       tags: ["Python", "Machine Learning", "NLP", "Streamlit"],
-      link: "#",
+      link: "https://lihat-subjekmu.streamlit.app/",
       github: "https://github.com/adindahpsr/klasifikasi-subjek",
       featured: true,
+      publication: "https://eprints.ums.ac.id/143306/1/NASKAH%20PUBLIKASI.pdf",
       keyFeatures: [
         "Klasifikasi teks multi-label dengan SVM, CNB, dan Bi-LSTM",
         "Penanganan class imbalance ekstrem & teks dwibahasa",
@@ -66,7 +67,7 @@ Model terbaik (SVM/LinearSVC, threshold optimal -0.330) mencapai F1-Macro 0.2038
     },
     {
       id: 2,
-      image: "/images/projects/laravel.png",
+      image: "/images/projects/dua.png",
       title: "Multi-Label Text Classification for Academic Documents Based on Study Program Concentration",
       slug: "analisis-data",
       description:
@@ -89,27 +90,7 @@ Model terbaik (SVM/LinearSVC, threshold optimal -0.040) mencapai F1-Macro 0.8924
     },
     {
       id: 3,
-      image: "/images/projects/react.png",
-      title: "Personal Blog & Storytelling Platform",
-      slug: "personal-blog",
-      description:
-        "Jun 2026 - Present",
-      longDescription: `Mengembangkan platform menulis dan membaca artikel/cerita serupa Medium dan Wattpad menggunakan Next.js dan TypeScript untuk frontend, dengan Laravel sebagai backend dan REST API.
- 
-Mengimplementasikan fitur autentikasi pengguna, CRUD artikel/cerita, like, dan komentar..`,
-      tags: ["Next.js", "TypeScript", "Laravel", "REST API"],
-      link: "#",
-      github: "#",
-      featured: false,
-      keyFeatures: [
-        "Autentikasi pengguna",
-        "CRUD artikel/cerita",
-        "Fitur like & komentar",
-        "Next.js + TypeScript (frontend), Laravel REST API (backend)",
-      ],
-    },
-    {
-      id: 4,
+      image: "/images/projects/tiga.png",
       title: "Tautin - URL Shortening Website with Encryption & QR Code Generator",
       slug: "tautin",
       description: "Mar - Jun 2025",
@@ -126,6 +107,27 @@ Mengimplementasikan fitur autentikasi pengguna, CRUD artikel/cerita, like, dan k
         "One-time secret messages & link expiration",
         "Enkripsi AES untuk keamanan data",
         "SUS score rata-rata 73,42 (good usability)",
+      ],
+    },
+    {
+      id: 4,
+      image: "/images/projects/empat.png",
+      title: "[COMING SOON] Personal Blog & Storytelling Platform",
+      slug: "personal-blog",
+      description:
+        "Jun 2026 - Present",
+      longDescription: `Mengembangkan platform menulis dan membaca artikel/cerita serupa Medium dan Wattpad menggunakan Next.js dan TypeScript untuk frontend, dengan Laravel sebagai backend dan REST API.
+ 
+Mengimplementasikan fitur autentikasi pengguna, CRUD artikel/cerita, like, dan komentar..`,
+      tags: ["Next.js", "TypeScript", "Laravel", "REST API"],
+      link: "#",
+      github: "#",
+      featured: false,
+      keyFeatures: [
+        "Autentikasi pengguna",
+        "CRUD artikel/cerita",
+        "Fitur like & komentar",
+        "Next.js + TypeScript (frontend), Laravel REST API (backend)",
       ],
     },
     {
