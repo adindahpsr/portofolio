@@ -6,9 +6,8 @@ import { portfolioData } from "@/lib/data";
 
 const navLinks = [
   { label: "About", href: "#about", id: "about" },
-  { label: "Skills", href: "#skills", id: "skills" },
-  { label: "Education", href: "#education", id: "education" },
   { label: "Projects", href: "#projects", id: "projects" },
+  { label: "Skills", href: "#skills", id: "skills" },
   { label: "Contact", href: "#contact", id: "contact" },
 ];
 
@@ -83,12 +82,16 @@ export default function Navbar() {
           })}
         </ul>
 
-        <a
-          href={`mailto:${portfolioData.email}`}
-          className="hidden md:inline-flex items-center gap-2 text-sm font-medium px-4 py-2 border border-ink text-ink hover:bg-ink hover:text-white transition-all duration-200 rounded-sm"
-        >
-          Hire Me
-        </a>
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-xs font-mono font-medium px-3.5 py-2 bg-ink text-white hover:bg-accent transition-all duration-200 rounded-sm shadow-2xs"
+          >
+            Download CV
+          </a>
+        </div>
 
         <button className="md:hidden text-ink" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -96,22 +99,24 @@ export default function Navbar() {
       </nav>
 
       {mobileOpen && (
-        <div className="md:hidden bg-white border-b border-border px-6 py-4 space-y-3">
+        <div className="md:hidden bg-white border-b border-border px-6 py-4 space-y-3 shadow-md">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className={`block text-sm transition-colors py-1 ${
+              className={`block text-sm transition-colors py-1.5 ${
                 activeSection === link.id ? "text-accent font-medium" : "text-muted hover:text-ink"
               }`}
             >
               {activeSection === link.id && "→ "}{link.label}
             </a>
           ))}
-          <a href={`mailto:${portfolioData.email}`} className="block text-sm font-medium text-accent pt-2">
-            Hire Me →
-          </a>
+          <div className="pt-2 border-t border-border flex flex-col gap-2">
+            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="block text-sm font-mono text-accent font-medium py-1">
+              Download CV (PDF) ↗
+            </a>
+          </div>
         </div>
       )}
     </header>

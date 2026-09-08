@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowDown, Github, Linkedin, Instagram } from "lucide-react";
 import { portfolioData } from "@/lib/data";
 
 export default function HeroSection() {
@@ -13,124 +12,128 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
-      {/* Subtle grid background */}
+    <section className="relative bg-white overflow-hidden">
+      {/* Subtle grid background with smooth bottom fade-out */}
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
           backgroundImage:
             "linear-gradient(#111 1px, transparent 1px), linear-gradient(90deg, #111 1px, transparent 1px)",
           backgroundSize: "60px 60px",
+          maskImage: "linear-gradient(to bottom, black 40%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 40%, transparent 100%)",
         }}
       />
+      {/* Bottom soft gradient fade */}
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent pointer-events-none" />
 
       {/* Accent circle blur */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-50 rounded-full blur-3xl opacity-60 pointer-events-none" />
+      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-blue-50/70 rounded-full blur-3xl opacity-70 pointer-events-none" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 text-center">
-        {/* Badge */}
-        <div
-          className={`inline-flex items-center gap-2 text-xs font-mono border border-green-300 bg-green-50 px-3 py-1.5 rounded-full mb-8 transition-all duration-700 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-        >
-          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_6px_2px_rgba(34,197,94,0.6)]" />
-          <span className="text-green-600 font-semibold">Available for work</span>
-        </div>
-
-        {/* Name */}
-        <h1
-          className={`font-display text-5xl md:text-7xl lg:text-8xl text-ink leading-[1.05] mb-6 transition-all duration-700 delay-100 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          {portfolioData.name.split(" ").map((word, i) => (
-            <span key={i} className={i === 1 ? "text-accent italic" : ""}>
-              {word}{" "}
-            </span>
-          ))}
-        </h1>
-
-        {/* Role */}
-        <p
-          className={`text-base md:text-lg font-mono text-muted uppercase tracking-widest mb-6 transition-all duration-700 delay-200 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          {portfolioData.role}
-        </p>
-
-        {/* Tagline */}
-        <p
-          className={`text-lg md:text-xl text-muted max-w-2xl mx-auto leading-relaxed mb-12 transition-all duration-700 delay-300 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          {portfolioData.tagline}
-        </p>
-
-        {/* CTAs */}
-        <div
-          className={`flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 transition-all duration-700 delay-400 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          <a
-            href="#projects"
-            className="inline-flex items-center gap-2 bg-ink text-white px-6 py-3 text-sm font-medium hover:bg-accent transition-colors duration-200 rounded-sm"
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-14 md:pt-36 md:pb-20">
+        {/* 2-Column Hero Grid with Mobile-First Order */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center mb-12 lg:mb-16">
+          {/* Photo Column: Appears First on Mobile, Right on Desktop */}
+          <div
+            className={`order-1 lg:order-2 lg:col-span-5 flex justify-center lg:justify-end transition-all duration-700 delay-100 ease-out mb-4 lg:mb-0 ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
           >
-            Lihat Projects
-          </a>
-          <a
-            href="/cv.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-ink border border-border px-6 py-3 hover:border-ink transition-colors duration-200 rounded-sm"
-          >
-            Lihat CV
-          </a>
-        </div>
+            <div className="relative group w-[220px] sm:w-[270px] lg:w-[320px]">
+              {/* Outer soft aura & contour ring */}
+              <div className="absolute inset-0 rounded-[60%_40%_55%_45%/50%_45%_55%_50%] border-2 border-accent/25 scale-105 group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute inset-4 rounded-full bg-blue-100/50 blur-2xl group-hover:bg-blue-200/50 transition-colors duration-500" />
 
-        {/* Social links */}
-        <div
-          className={`flex items-center justify-center gap-5 transition-all duration-700 delay-500 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          <a
-            href={portfolioData.socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted hover:text-ink transition-colors"
+              <div
+                className="relative overflow-hidden bg-surface shadow-md border border-border/60"
+                style={{
+                  borderRadius: "60% 40% 55% 45% / 50% 45% 55% 50%",
+                  aspectRatio: "1 / 1",
+                  transition: "transform 0.4s ease, box-shadow 0.4s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.02)";
+                  e.currentTarget.style.boxShadow = "0 20px 40px rgba(26,86,219,0.12)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                <img
+                  src="/placeholder-photo.jpg"
+                  alt={portfolioData.name}
+                  className="w-full h-full object-cover grayscale-[10%] group-hover:grayscale-0 transition-all duration-500"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    target.style.display = "none";
+                    const fallback = target.nextElementSibling as HTMLElement;
+                    if (fallback) fallback.style.display = "flex";
+                  }}
+                />
+                <div className="absolute inset-0 flex-col items-center justify-center bg-surface gap-3" style={{ display: "none" }}>
+                  <div className="w-14 sm:w-16 h-14 sm:h-16 rounded-full bg-border/70 flex items-center justify-center">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="1.5">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                  </div>
+                  <p className="font-mono text-[10px] sm:text-[11px] text-muted text-center px-4">
+                    Photo Profile<br />
+                    <span className="text-accent text-[9px] sm:text-[10px]">public/placeholder-photo.jpg</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Floating Pill Top Left */}
+              <div className="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 bg-white/95 backdrop-blur-md border border-border shadow-xs sm:shadow-md rounded-full px-2.5 py-1 sm:px-3.5 sm:py-1.5 flex items-center gap-1.5 transform -rotate-3 hover:rotate-0 transition-transform">
+                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-accent" />
+                <span className="font-mono text-[10px] sm:text-[11px] text-ink font-medium">Data & Web Enthusiast</span>
+              </div>
+
+              {/* Floating Pill Bottom Right */}
+              <div className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 bg-white/95 backdrop-blur-md border border-border shadow-xs sm:shadow-md rounded-full px-2.5 py-1 sm:px-3.5 sm:py-1.5 flex items-center gap-1.5 transform rotate-3 hover:rotate-0 transition-transform">
+                <span className="text-accent text-xs">✦</span>
+                <span className="font-mono text-[10px] sm:text-[11px] text-ink font-medium">UMS • IPK 3.76</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Text Column: Appears Below Photo on Mobile, Left on Desktop */}
+          <div
+            className={`order-2 lg:order-1 lg:col-span-7 text-center lg:text-left transition-all duration-700 ease-out ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
           >
-            <Github size={20} />
-          </a>
-          <a
-            href={portfolioData.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted hover:text-ink transition-colors"
-          >
-            <Linkedin size={20} />
-          </a>
-          <a
-            href={portfolioData.socials.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted hover:text-ink transition-colors"
-          >
-            <Instagram size={20} />
-          </a>
+            {/* Availability status badge */}
+            <div className="inline-flex items-center gap-2 text-xs font-mono border border-emerald-300/80 bg-emerald-50/80 text-emerald-800 px-3.5 py-1.5 rounded-full shadow-2xs mb-5 mx-auto lg:mx-0">
+              <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_6px_2px_rgba(16,185,129,0.5)]" />
+              <span className="font-semibold tracking-wide">Available for Work & Collaboration</span>
+            </div>
+
+            {/* Headline Two-Tone */}
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-ink leading-[1.08] tracking-tight mb-4 sm:mb-5">
+              Halo, saya <span className="text-accent italic font-normal">{portfolioData.name}.</span>
+            </h1>
+
+            {/* Bio text */}
+            <p className="text-base sm:text-lg text-muted/90 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-7 sm:mb-8 font-body">
+              Fresh graduate S1 Teknik Informatika UMS dengan fokus riset Machine Learning & NLP, eksplorasi data analitik berbasis insight, dan perancangan web full-stack yang terstruktur.
+            </p>
+
+            {/* Dual CTAs */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+              <a
+                href="#projects"
+                className="inline-flex items-center justify-center gap-2 bg-ink text-white px-6 py-3.5 text-sm font-medium hover:bg-accent transition-all duration-200 rounded-sm shadow-sm hover:shadow-md active:scale-[0.98]"
+              >
+                Lihat Projects <span>↗</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <a
-        href="#about"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted hover:text-ink transition-colors animate-bounce"
-      >
-        <ArrowDown size={20} />
-      </a>
     </section>
   );
 }
+
