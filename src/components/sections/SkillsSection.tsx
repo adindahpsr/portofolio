@@ -9,6 +9,8 @@ const marqueeItems = [...allSkillNames, ...allSkillNames, ...allSkillNames];
 const softSkills = [
   "Problem Solving",
   "Analytical Thinking",
+  "Communication",
+  "Team Work",
   "NLP Research & Experimentation",
   "Data Modeling & Preprocessing",
   "Full-Stack Web Engineering",
@@ -117,7 +119,7 @@ export default function SkillsSection() {
           }`}
         >
           <span className="block font-mono text-[10px] md:text-[11px] text-muted font-medium uppercase tracking-widest mb-3">
-            CORE COMPETENCIES & PROFESSIONAL SKILLS
+            CORE COMPETENCIES & SKILLS
           </span>
           <div className="flex flex-wrap gap-2">
             {softSkills.map((item) => (
