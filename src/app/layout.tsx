@@ -5,6 +5,11 @@ export const metadata: Metadata = {
   title: "Adinda Aulia H",
   description:
     "Portfolio of Adinda Aulia H, a website developer crafting clean, performant digital experiences.",
+  icons: {
+    icon: "/profile-icon.png",
+    shortcut: "/profile-icon.png",
+    apple: "/profile-icon.png",
+  },
   openGraph: {
     title: "Adinda Aulia H",
     description: "Crafting clean, performant digital experiences.",

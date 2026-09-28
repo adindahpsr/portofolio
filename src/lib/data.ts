@@ -125,6 +125,14 @@ Adaptif, senang mengeksplorasi teknologi baru, dan siap berkontribusi secara pro
           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
         },
         {
+          name: "C#",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
+        },
+        {
+          name: "ASP.NET",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg",
+        },
+        {
           name: "Laravel",
           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
         },
@@ -293,9 +301,15 @@ Mengevaluasi sistem menggunakan Blackbox Testing dan System Usability Scale (SUS
   ],
   experience: [
     {
+      role: "IT Programmer (Internship)",
+      company: "PT Tri Usaha Sejahtera Pratama",
+      period: "Sep 2026 – Present",
+      description: ["Program internship melalui Maganghub Kemnaker."],
+    },
+    {
       role: "Staff IT & Media (Freelance)",
       company: "SD Muhammadiyah Terpadu Masaran",
-      period: "Apr 2026 – Aug 2026",
+      period: "Apr 2026 – Present",
       description: [
         "Mengelola operasional konten dan publikasi media sosial institusi secara terencana dan konsisten.",
         "Merancang materi visual promosi kegiatan dan branding sekolah menggunakan Canva.",

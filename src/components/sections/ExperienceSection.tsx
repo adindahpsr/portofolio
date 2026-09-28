@@ -31,8 +31,8 @@ export default function ExperienceSection() {
             </h2>
           </div>
 
-          {/* Kotak Sejajar (2 Kolom Estetik & Clean) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+          {/* Kotak Sejajar (3 Kolom Estetik & Clean) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             {portfolioData.experience.map((exp, i) => (
               <div
                 key={i}
