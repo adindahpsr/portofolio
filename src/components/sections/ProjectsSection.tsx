@@ -70,84 +70,84 @@ export default function ProjectsSection() {
           </h2>
         </div>
 
-        {/* Horizontal Project Cards */}
-        <div className="flex flex-col gap-8">
+        {/* Grid Project Cards: 2 Sejajar di Desktop/Tablet (md/lg:grid-cols-2) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
           {displayed.map((project, i) => {
             const img = project.image;
             return (
               <article
                 key={project.id}
-                className="group border border-border hover:border-accent/40 bg-white hover:shadow-lg rounded-sm overflow-hidden transition-all duration-500 ease-out grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch p-5 md:p-7"
+                className="group border border-border hover:border-accent/40 bg-white hover:shadow-lg rounded-sm overflow-hidden transition-all duration-500 ease-out flex flex-col justify-between p-5 md:p-6"
                 style={{
                   transitionDelay: `${150 + i * 80}ms`,
                   opacity: visible ? 1 : 0,
                   transform: visible ? "translateY(0)" : "translateY(24px)",
                 }}
               >
-                {/* Image side */}
-                <div className="lg:col-span-5 relative w-full min-h-[220px] md:min-h-[260px] aspect-[16/10] bg-surface overflow-hidden rounded-xs border border-border/60">
-                  {img ? (
-                    <Image
-                      src={img}
-                      alt={project.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-50 to-slate-100">
-                      <div className="flex flex-col items-center gap-2 opacity-40">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-accent">
-                          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/>
-                        </svg>
-                        <span className="font-mono text-xs text-muted">Preview</span>
+                <div>
+                  {/* Image side */}
+                  <div className="relative w-full aspect-[16/10] bg-surface overflow-hidden rounded-xs border border-border/60 mb-5">
+                    {img ? (
+                      <Image
+                        src={img}
+                        alt={project.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-50 to-slate-100">
+                        <div className="flex flex-col items-center gap-2 opacity-40">
+                          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-accent">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/>
+                          </svg>
+                          <span className="font-mono text-xs text-muted">Preview</span>
+                        </div>
                       </div>
-                    </div>
-                  )}
-
-                  {/* Hover Overlay */}
-                  <a
-                    href={`/projects/${project.slug}`}
-                    className="absolute inset-0 bg-ink/70 backdrop-blur-2xs opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 text-white font-medium text-xs gap-1.5 z-10"
-                  >
-                    <span>Lihat Detail Project</span>
-                    <span className="text-accent text-sm">↗</span>
-                  </a>
-
-                  {/* Badge Angka & Featured di depan gambar (cukup 1 tulisan featured) */}
-                  <div className="absolute top-3 left-3 z-20 flex items-center gap-1.5 bg-white/95 backdrop-blur-sm border border-border/80 px-2.5 py-1 rounded-xs shadow-2xs">
-                    <span className="font-mono text-xs font-bold text-ink">
-                      0{i + 1}
-                    </span>
-                    {project.featured && (
-                      <>
-                        <span className="w-1 h-1 rounded-full bg-accent" />
-                        <span className="font-mono text-[10px] font-semibold text-accent uppercase tracking-wider">
-                          Featured
-                        </span>
-                      </>
                     )}
-                  </div>
-                </div>
 
-                {/* Content side */}
-                <div className="lg:col-span-7 flex flex-col justify-between">
+                    {/* Hover Overlay */}
+                    <a
+                      href={`/projects/${project.slug}`}
+                      className="absolute inset-0 bg-ink/70 backdrop-blur-2xs opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 text-white font-medium text-xs gap-1.5 z-10"
+                    >
+                      <span>Lihat Detail Project</span>
+                      <span className="text-accent text-sm">↗</span>
+                    </a>
+
+                    {/* Badge Angka & Featured di depan gambar */}
+                    <div className="absolute top-3 left-3 z-20 flex items-center gap-1.5 bg-white/95 backdrop-blur-sm border border-border/80 px-2.5 py-1 rounded-xs shadow-2xs">
+                      <span className="font-mono text-xs font-bold text-ink">
+                        0{i + 1}
+                      </span>
+                      {project.featured && (
+                        <>
+                          <span className="w-1 h-1 rounded-full bg-accent" />
+                          <span className="font-mono text-[10px] font-semibold text-accent uppercase tracking-wider">
+                            Featured
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Content */}
                   <div>
-                    {/* Header: Judul di kiri, Tanggal di kanan */}
-                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-3">
+                    {/* Header: Judul & Tanggal */}
+                    <div className="flex items-start justify-between gap-3 mb-3">
                       <a href={`/projects/${project.slug}`} className="flex-1">
-                        <h3 className="font-display text-xl md:text-2xl text-ink group-hover:text-accent transition-colors cursor-pointer leading-snug tracking-tight">
+                        <h3 className="font-display text-lg md:text-xl text-ink group-hover:text-accent transition-colors cursor-pointer leading-snug tracking-tight line-clamp-2">
                           {project.title}
                         </h3>
                       </a>
                       {project.period && (
-                        <span className="shrink-0 font-mono text-xs text-muted/90 border border-border/70 bg-surface/50 px-2.5 py-1 rounded-xs self-start">
+                        <span className="shrink-0 font-mono text-[11px] text-muted/90 border border-border/70 bg-surface/50 px-2 py-0.5 rounded-xs self-start">
                           {project.period}
                         </span>
                       )}
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm text-muted leading-relaxed mb-5 font-body">
+                    <p className="text-sm text-muted leading-relaxed mb-5 font-body line-clamp-3">
                       {project.description}
                     </p>
 
@@ -177,53 +177,53 @@ export default function ProjectsSection() {
                       ))}
                     </div>
                   </div>
+                </div>
 
-                  {/* Action Buttons */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-border flex-wrap mt-auto">
+                {/* Action Buttons */}
+                <div className="flex items-center gap-2 pt-4 border-t border-border flex-wrap mt-auto">
+                  <a
+                    href={`/projects/${project.slug}`}
+                    className="inline-flex items-center gap-1 text-xs font-mono font-medium bg-ink text-white hover:bg-accent px-3 py-1.5 rounded-xs transition-colors shadow-2xs"
+                  >
+                    <span>Detail</span>
+                    <span>→</span>
+                  </a>
+
+                  {project.link && project.link !== "#" && (
                     <a
-                      href={`/projects/${project.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-mono font-medium bg-ink text-white hover:bg-accent px-3.5 py-2 rounded-xs transition-colors shadow-2xs"
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-mono font-medium text-ink border border-border bg-white hover:border-accent hover:text-accent px-3 py-1.5 rounded-xs transition-colors shadow-2xs"
                     >
-                      <span>Detail Project</span>
-                      <span>→</span>
+                      <ExternalLink size={12} />
+                      <span>Demo ↗</span>
                     </a>
+                  )}
 
-                    {project.link && project.link !== "#" && (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-ink border border-border bg-white hover:border-accent hover:text-accent px-3.5 py-2 rounded-xs transition-colors shadow-2xs"
-                      >
-                        <ExternalLink size={13} />
-                        <span>Live Demo ↗</span>
-                      </a>
-                    )}
+                  {project.github && project.github !== "#" && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-mono font-medium text-ink border border-border bg-white hover:border-accent hover:text-accent px-3 py-1.5 rounded-xs transition-colors shadow-2xs"
+                    >
+                      <Github size={13} />
+                      <span>GitHub ↗</span>
+                    </a>
+                  )}
 
-                    {project.github && project.github !== "#" && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-ink border border-border bg-white hover:border-accent hover:text-accent px-3.5 py-2 rounded-xs transition-colors shadow-2xs"
-                      >
-                        <Github size={14} />
-                        <span>GitHub ↗</span>
-                      </a>
-                    )}
-
-                    {project.publication && (
-                      <a
-                        href={project.publication}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-emerald-800 bg-emerald-50/90 border border-emerald-300/80 hover:bg-emerald-100/90 px-3.5 py-2 rounded-xs transition-colors"
-                      >
-                        <FileText size={13} className="text-emerald-600" />
-                        <span>Naskah Publikasi ↗</span>
-                      </a>
-                    )}
-                  </div>
+                  {project.publication && (
+                    <a
+                      href={project.publication}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-mono font-medium text-emerald-800 bg-emerald-50/90 border border-emerald-300/80 hover:bg-emerald-100/90 px-3 py-1.5 rounded-xs transition-colors"
+                    >
+                      <FileText size={12} className="text-emerald-600" />
+                      <span>Publikasi ↗</span>
+                    </a>
+                  )}
                 </div>
               </article>
             );
@@ -235,12 +235,12 @@ export default function ProjectsSection() {
           <div className="flex justify-center mt-12">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="group flex items-center gap-2 border border-border hover:border-accent text-muted hover:text-accent px-6 py-3 text-sm font-medium transition-all duration-200 rounded-sm bg-white shadow-2xs"
+              className="group flex items-center gap-2 border border-border hover:border-accent text-muted hover:text-accent px-6 py-3 text-sm font-medium transition-all duration-200 rounded-sm bg-white shadow-2xs cursor-pointer"
             >
               {showAll ? (
                 <><ChevronUp size={15} className="transition-transform group-hover:-translate-y-0.5" /> Sembunyikan</>
               ) : (
-                <><ChevronDown size={15} className="transition-transform group-hover:translate-y-0.5" /> Lihat Selengkapnya ({projects.length - INITIAL_SHOW} lagi)</>
+                <><ChevronDown size={15} className="transition-transform group-hover:translate-y-0.5" /> Lihat Semua Project ({projects.length - INITIAL_SHOW} lagi)</>
               )}
             </button>
           </div>

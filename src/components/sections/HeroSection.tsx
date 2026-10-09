@@ -94,7 +94,7 @@ export default function HeroSection() {
               {/* Floating Pill Bottom Right */}
               <div className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 bg-white/95 backdrop-blur-md border border-border shadow-xs sm:shadow-md rounded-full px-2.5 py-1 sm:px-3.5 sm:py-1.5 flex items-center gap-1.5 transform rotate-3 hover:rotate-0 transition-transform">
                 <span className="text-accent text-xs">✦</span>
-                <span className="font-mono text-[10px] sm:text-[11px] text-ink font-medium">UMS • IPK 3.76</span>
+                <span className="font-mono text-[10px] sm:text-[11px] text-ink font-medium">Fresh Graduate</span>
               </div>
             </div>
           </div>
