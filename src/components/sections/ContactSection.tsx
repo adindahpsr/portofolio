@@ -65,7 +65,7 @@ export default function ContactSection() {
             </span>
           </h2>
           <p className="font-body text-muted leading-relaxed text-[15px] md:text-base">
-            Terbuka untuk peluang kerja, freelance, riset data science, maupun diskusi seputar pengembangan web. Silakan hubungi saya melalui kanal di bawah:
+            Terbuka untuk peluang kerja, freelance, riset data, maupun diskusi seputar pengembangan web. Silakan hubungi saya melalui kanal di bawah:
           </p>
         </div>
 
