@@ -121,16 +121,12 @@ Adaptif, senang mengeksplorasi teknologi baru, dan siap berkontribusi secara pro
       // description: "Pembangunan web interaktif & full-stack",
       items: [
         {
+          name: "HTML",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+        },
+        {
           name: "PHP",
           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
-        },
-        {
-          name: "C#",
-          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
-        },
-        {
-          name: "ASP.NET",
-          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg",
         },
         {
           name: "Laravel",
@@ -274,6 +270,27 @@ Mengevaluasi sistem menggunakan Blackbox Testing dan System Usability Scale (SUS
         "One-time secret messages & link expiration",
         "Enkripsi AES untuk keamanan data",
         "SUS score rata-rata 73,42 (good usability)",
+      ],
+    },
+    {
+      id: 4,
+      image: "/images/projects/ruangbelajar.png",
+      title: "RuangBelajar — Sistem Multimedia",
+      slug: "ruangbelajar",
+      period: "2024",
+      description:
+        "Project akhir mata kuliah Sistem Multimedia berupa platform pembelajaran online dengan game edukasi interaktif yang dibuat menggunakan Genially.",
+      longDescription: `RuangBelajar merupakan website project akhir mata kuliah Sistem Multimedia yang dikerjakan pada tahun 2024. Platform pembelajaran online ini dilengkapi game edukasi interaktif yang dibuat menggunakan Genially.
+
+Website ini dibuat menggunakan HTML, CSS, dan JavaScript, serta dapat diakses melalui ponsel, tablet, laptop, maupun komputer.`,
+      tags: ["HTML", "CSS", "JavaScript", "Genially"],
+      link: "https://ruangbelajar-sm.vercel.app/",
+      github: "https://github.com/adindahpsr/ruangbelajar",
+      featured: false,
+      keyFeatures: [
+        "Platform pembelajaran online berbasis web",
+        "Game edukasi interaktif dibuat menggunakan Genially",
+        "Dibangun dengan HTML, CSS, dan JavaScript",
       ],
     },
 //     {

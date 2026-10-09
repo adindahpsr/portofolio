@@ -9,6 +9,10 @@ import { portfolioData } from "@/lib/data";
 const INITIAL_SHOW = 4;
 
 const toolLogos: Record<string, string> = {
+  HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+  CSS: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+  JavaScript: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+  Genially: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a56db' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12h4m-2-2v4m7-1h.01M18 11h.01'/%3E%3Cpath d='M6.5 7h11a4.5 4.5 0 0 1 4.3 5.8l-1 3a2.5 2.5 0 0 1-4.2 1L14.5 14h-5l-2.1 2.8a2.5 2.5 0 0 1-4.2-1l-1-3A4.5 4.5 0 0 1 6.5 7Z'/%3E%3C/svg%3E",
   Python: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
   "Scikit-Learn": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg",
   Pandas: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg",
@@ -201,7 +205,7 @@ export default function ProjectsSection() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono text-muted hover:text-ink transition-colors px-2 py-2"
+                        className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-ink border border-border bg-white hover:border-accent hover:text-accent px-3.5 py-2 rounded-xs transition-colors shadow-2xs"
                       >
                         <Github size={14} />
                         <span>GitHub ↗</span>
@@ -245,4 +249,3 @@ export default function ProjectsSection() {
     </section>
   );
 }
-
