@@ -275,7 +275,7 @@ Mengevaluasi sistem menggunakan Blackbox Testing dan System Usability Scale (SUS
     {
       id: 4,
       image: "/images/projects/ruangbelajar.png",
-      title: "RuangBelajar — Sistem Multimedia",
+      title: "Ruang Belajar",
       slug: "ruangbelajar",
       period: "2024",
       description:
